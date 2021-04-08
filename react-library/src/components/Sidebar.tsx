@@ -39,7 +39,11 @@ const useStyles = makeStyles((theme: Theme) =>
         color: "inherit",
       },
     },
+    icon: {
+      color:"#4FAB0C"
+    }
   })
+
 );
 const Sidebar = () => {
   const classes = useStyles();
@@ -64,7 +68,7 @@ const Sidebar = () => {
           {links.map((list, index) => (
             <Link to={list.link} className={classes.link}>
               <ListItem button key={index}>
-                <ListItemIcon>{list.icon}</ListItemIcon>
+                <ListItemIcon className={classes.icon }>{list.icon}</ListItemIcon>
                 <ListItemText primary={list.name} />
               </ListItem>
             </Link>

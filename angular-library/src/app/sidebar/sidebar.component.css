@@ -1,0 +1,22 @@
+.sidenavContainer{
+height: 100vh;
+
+}
+
+.sidenav{
+  width: 240px;
+  height: 100vh;
+      background: #3b6076;
+      color: #F0F0F0;
+      padding: 15px;
+}
+.sidenavToolbar{
+  background: #000000;
+  color:  #F0F0F0;
+  text-align: center;
+  box-shadow: 10px 0 10px #888888;
+}
+.sidenavToolbar h1{
+  margin: auto;
+}
+
