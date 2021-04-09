@@ -3,7 +3,6 @@ import HomeIcon from "@material-ui/icons/Home";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import BookList from './BookList';
 import AddBook from './AddBook';
 import EditBook from './EditBook';
@@ -54,9 +53,5 @@ export const links = [
     icon: <EditIcon />,
     link: "/edit",
   },
-  {
-    name: "Logout",
-    icon: <ExitToAppIcon />,
-    link: "/login",
-  },
+
 ];

@@ -1,0 +1,17 @@
+
+.book-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.book-card{
+  margin-bottom: 20px;
+}
+
+.content{
+  display: grid;
+  grid-template-columns: .5fr 1fr;
+  gap: 10px;
+  justify-content: start;
+  align-items: start;
+}

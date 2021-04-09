@@ -19,5 +19,26 @@ height: 100vh;
 .sidenavToolbar h1{
   margin: auto;
 }
-
+.list{
+  list-style: none;
+  padding:0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.list-item{
+  padding: 0px 20px 20px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.list-item a ,.list-item a:visited  {
+text-decoration: none;
+color: #F0F0F0;
+}
+.list-item:hover{
+  background: #365a6f;
+}
+.icon{
+  color:#4FAB0C;
+  margin-right: 30px ;
+  margin-top: 20px;
+}
 
