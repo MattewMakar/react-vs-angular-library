@@ -2,11 +2,12 @@
   <h2>add new book </h2>
 </mat-card>
 
-<mat-card >
+<mat-card class="card-container">
+
 <form class="example-form">
   <mat-form-field class="example-full-width">
-    <mat-label>Company (disabled)</mat-label>
-    <input matInput disabled value="Google">
+    <mat-label>title</mat-label>
+    <input matInput placeholder="ex. Harry Potter" value="">
   </mat-form-field>
 
   <table class="example-full-width" cellspacing="0">
@@ -60,5 +61,6 @@
       </td>
     </tr>
   </table>
+  <button mat-raised-button color="primary">add</button>
 </form>
 </mat-card>

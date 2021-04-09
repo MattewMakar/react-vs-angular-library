@@ -3,7 +3,9 @@ html,body{
   margin: 0;
 }
 .component-heading{
-  width: 400px;
+  width: 50%;
+  margin: auto;
+  text-align: center;
   background: #0a024d;
   margin-bottom: 20px;
   color: #F0F0F0;
