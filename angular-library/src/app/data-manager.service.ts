@@ -20,4 +20,7 @@ export class DataManagerService {
       responseType: 'text',
     });
   }
+  addBook(book: Book):Observable<Book>{
+    return this.http.post<Book>('http://localhost:8000/books', book);
+  }
 }

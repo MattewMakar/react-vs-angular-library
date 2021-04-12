@@ -3,56 +3,45 @@
 </mat-card>
 
 <mat-card class="card-container">
-  <form class="form">
-    <div class="grid">
-      <div class="full-width">
-        <mat-form-field>
-          <mat-label>title</mat-label>
-          <input matInput placeholder="ex. Harry Potter"  required/>
-        </mat-form-field>
-      </div>
+  <form [formGroup]="bookForm" class="grid" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>title</mat-label>
+      <input matInput placeholder="ex. Harry Potter" formControlName="title" />
+    </mat-form-field>
 
-      <div class="half-width">
-        <mat-form-field>
-          <mat-label>Author</mat-label>
-          <input matInput />
-        </mat-form-field>
-      </div>
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="author" />
+    </mat-form-field>
 
-      <div class="half-width">
-        <mat-form-field>
-          <mat-label>UUID</mat-label>
-          <input matInput required/>
-        </mat-form-field>
-      </div>
+    <mat-form-field class="half-width" appearance="outline">
+      <mat-label>UUID</mat-label>
+      <input matInput formControlName="UUID" />
+    </mat-form-field>
 
-      <div class="half-width">
-        <mat-form-field>
-          <mat-label>Date</mat-label>
-          <input matInput placeholder="Ex. San Francisco" />
-        </mat-form-field>
-      </div>
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
-      <div class="half-width">
-        <mat-form-field>
-          <mat-label>Cover Image Url</mat-label>
-          <input matInput placeholder="Ex. California" />
-        </mat-form-field>
-      </div>
-      <div class="full-width">
-          <mat-form-field>
-            <mat-label>Summary</mat-label>
-            <textarea matInput placeholder="Ex. 100 Main St">
-          
+    <mat-form-field appearance="outline" class="half-width">
+      <mat-label>Cover Image Url</mat-label>
+      <input matInput placeholder="Ex. California" formControlName="cover" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Summary</mat-label>
+      <textarea matInput class="summary" placeholder="Ex. 100 Main St">
+
             </textarea>
-          </mat-form-field>
-      </div>
+    </mat-form-field>
 
 
-      <div class="full-width button">
-        <button  mat-raised-button color="primary">add</button>
-      </div>
+    <div class="full-width button">
+      <button mat-raised-button color="primary">add</button>
     </div>
+
 
   </form>
 </mat-card>

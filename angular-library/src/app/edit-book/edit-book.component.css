@@ -1,35 +1,24 @@
-.card-container{
+.card-container {
   width: 50%;
   text-align: center;
   margin: auto;
 }
 
-.grid{
-  width: 100%;
-}
-.half-width{
-  width: 40%;
-  display: inline-block;
-  margin-right: 5%;
-    border: 1px solid #88888858;
-    margin: 10px;
-    border-radius: 10px;
-    padding: 1%;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
+  gap: 10px;
 }
-.half-width > *{
+.half-width , .half-width >* {
   width: 100%;
 }
-.full-width{
-    width: 98%;
-    padding: 1%;
-    border: 1px solid #88888858;
-    margin: 10px 0;
-    border-radius: 10px;
+.full-width  > *{
+  width: 100%;
 }
-.full-width > *{
-    width: 100%;
+.full-width {
+  grid-column: 1/ span 2 ;
 }
-.button{
-  border:unset;
+.summary{
+  min-height: 70px;
 }

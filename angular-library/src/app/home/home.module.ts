@@ -13,6 +13,11 @@ import { EditBookComponent } from '../edit-book/edit-book.component';
 import { ViewBookComponent } from '../view-book/view-book.component';
 import { BookComponent } from '../book/book.component';
 import { SearchComponent } from '../search/search.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -34,6 +39,10 @@ import { SearchComponent } from '../search/search.component';
     MatButtonModule,
     MatFormFieldModule,
     MatButtonModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class HomeModule {} 

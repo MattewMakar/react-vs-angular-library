@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent, SidebarComponent, MainComponent, HomeComponent],
   imports: [
