@@ -21,7 +21,7 @@ const Main = () => {
     <main className={classes.content}>
       <Switch>
         {mainRoutes.map((route, index) => 
-          <Route  path={route.path} key={index} >
+          <Route  path={route.path} key={index} exact>
             {route.Component}
           </Route>
         )}

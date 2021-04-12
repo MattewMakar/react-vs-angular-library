@@ -4,18 +4,3 @@
   grid-template-columns: 1fr 1fr;
   gap: 30px;
 }
-.book-card{
-  margin-bottom: 20px;
-}
-.book-img{
-  border-radius: 3px;
-  box-shadow: 3px 3px 5px #888888;
-}
-
-.content{
-  display: grid;
-  grid-template-columns: .5fr 1fr;
-  gap: 10px;
-  justify-content: start;
-  align-items: start;
-}

@@ -1,0 +1,7 @@
+<mat-form-field class="search">
+  <mat-label>Search for a book</mat-label>
+  <input matInput placeholder="Ex. harry potter" #input (keyup)="onChange(input.value)"  [value]="title">
+</mat-form-field>
+<div class="result" *ngIf="books">
+  <app-book *ngFor="let book of books" [book]="book" (deleteClicked)="onDelete($event)"></app-book>
+</div>

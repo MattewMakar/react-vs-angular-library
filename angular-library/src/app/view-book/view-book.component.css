@@ -1,0 +1,16 @@
+.book-card{
+  margin-bottom: 20px;
+}
+.book-img{
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px #888888;
+  margin-right: 10px;
+}
+
+.content{
+  display: grid;
+  grid-template-columns: .2fr 1fr;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: start;
+}

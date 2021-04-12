@@ -1,7 +1,57 @@
 <mat-card class="component-heading">
-  <h2>edit a book </h2>
+  <h2>Edit A Book</h2>
 </mat-card>
-<mat-form-field class="example-full-width">
-  <mat-label>search for the book</mat-label>
-  <input matInput placeholder="Ex. harry potter" value="">
-</mat-form-field>
+
+<mat-card class="card-container">
+  <form class="form">
+    <div class="grid">
+      <div class="full-width">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="ex. Harry Potter" [value]="book?.title" />
+        </mat-form-field>
+      </div>
+
+      <div class="half-width">
+        <mat-form-field>
+          <mat-label>Author</mat-label>
+          <input matInput [value]="book?.author"/>
+        </mat-form-field>
+      </div>
+
+      <div class="half-width">
+        <mat-form-field>
+          <mat-label>UUID</mat-label>
+          <input matInput [value]="book?.UUID"/>
+        </mat-form-field>
+      </div>
+
+      <div class="half-width">
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input matInput  [value]="book?.date"/>
+        </mat-form-field>
+      </div>
+
+      <div class="half-width">
+        <mat-form-field>
+          <mat-label>Cover Image URL</mat-label>
+          <input matInput [value]="book?.cover" />
+        </mat-form-field>
+      </div>
+      <div class="full-width">
+        <mat-form-field>
+          <mat-label>Summary</mat-label>
+          <textarea matInput [value]="book?.summary">
+
+            </textarea>
+        </mat-form-field>
+      </div>
+
+
+      <div class="full-width button">
+        <button mat-raised-button color="primary">Edit</button>
+      </div>
+    </div>
+  </form>
+</mat-card>

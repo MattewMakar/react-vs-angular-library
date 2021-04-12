@@ -5,8 +5,10 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import BookList from './BookList';
 import AddBook from './AddBook';
-import EditBook from './EditBook';
+import EditBooks from './EditBooks';
 import DeleteBook from './DeleteBook';
+import EditBook from "./EditBook";
+import ViewBook from './ViewBook';
 
 export const routes = [{
   path: "/",
@@ -15,7 +17,7 @@ export const routes = [{
 
 export const mainRoutes = [
   {
-    path: "/list",
+    path: "/",
     Component: <BookList />,
   },
   {
@@ -28,15 +30,23 @@ export const mainRoutes = [
   },
   {
     path: "/edit",
+    Component: <EditBooks />,
+  },
+  {
+    path: "/edit/:id",
     Component: <EditBook />,
   },
+  {
+    path: "/view/:id",
+    Component: <ViewBook/>
+  }
 ];
 
 export const links = [
   {
     name: "Home",
     icon: <HomeIcon />,
-    link: "/list",
+    link: "/",
   },
   {
     name: "Add book",
@@ -52,6 +62,23 @@ export const links = [
     name: "Edit book",
     icon: <EditIcon />,
     link: "/edit",
+  },
+  
+  
+
+];
+export const buttonLinks = [
+  {
+    name: "View more",
+    link: "/view",
+  },
+  {
+    name: "Edit",
+    link: "/edit",
+  },
+  {
+    name: "Delete",
+    link: "/delete",
   },
 
 ];

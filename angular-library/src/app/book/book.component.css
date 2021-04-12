@@ -1,0 +1,25 @@
+.book-card{
+  margin-bottom: 20px;
+}
+.book-img{
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px #888888;
+  height: 400px;
+  width: 260px;
+  margin-right: 10px;
+}
+
+.content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: start;
+}
+.summary{
+  overflow: hidden;
+  height: 100px;
+}
+.button-link{
+  margin-left: 5px;
+}

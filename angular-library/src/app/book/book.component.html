@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-content class="content">
+    <img [src]="book.cover" alt="book-img" class="book-img">
+    <div>
+      <h2>{{book.title}}</h2>
+      <h4>{{book.author}}</h4>
+      <h5>{{book.date}}</h5>
+      <p class="summary">{{book.summary}}</p>
+      <mat-card-actions>
+        <a [routerLink]="['/view/', book.title]" class="button-link">
+          <button mat-raised-button color="primary"> view more</button>
+        </a>
+        <a [routerLink]="['/edit/', book.title]" class="button-link">
+          <button mat-raised-button color="accent">edit</button> </a>
+        
+          <button mat-raised-button class="button-link" (click)="onDelete(book.title)" color="warn">delete</button>
+
+      </mat-card-actions>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>

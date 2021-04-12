@@ -66,9 +66,9 @@ const Sidebar = () => {
       >
         <List>
           {links.map((list, index) => (
-            <Link to={list.link} className={classes.link}>
-              <ListItem button key={index}>
-                <ListItemIcon className={classes.icon }>{list.icon}</ListItemIcon>
+            <Link to={list.link} className={classes.link} key={index}>
+              <ListItem button>
+                <ListItemIcon className={classes.icon}>{list.icon}</ListItemIcon>
                 <ListItemText primary={list.name} />
               </ListItem>
             </Link>

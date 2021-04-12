@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import Book from "./Book";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-
+import { Book as BookType } from "../Book";
 
 const useStyles = makeStyles({
   root: {
@@ -18,7 +17,7 @@ const useStyles = makeStyles({
     color: "#FFFFFF",
     margin: "auto",
     marginBottom: "20px",
-    "& h1":{
+    "& h1": {
       margin: "auto",
     },
   },
@@ -28,123 +27,38 @@ const useStyles = makeStyles({
 });
 const BookList = () => {
   const classes = useStyles();
+  const [books, setBooks] = useState<BookType[] | undefined>();
+  useEffect(() => {
+    (async () => {
+      const data = await axios({ method: "get", url: "http://localhost:8000/books" });
+      setBooks(data.data);
+    })();
+  }, []);
+
+
+  const handleClick = async (e: React.MouseEvent<HTMLButtonElement> , id:string) => {
+
+       await axios({ method: "delete", url: `http://localhost:8000/books/${encodeURI(id)}` });
+
+
+      const data = await axios({ method: "get", url: "http://localhost:8000/books" });
+      setBooks(data.data);
+  
+  };
 
   return (
     <React.Fragment>
-      <Card className={classes.heading} ><h1>Available Books</h1></Card>
+      <Card className={classes.heading}>
+        <h1>Available Books</h1>
+      </Card>
       <Grid container justify="flex-start" spacing={3}>
-        <Grid item xs={6}>
-          <Card className={classes.root}>
-            <CardContent>
-              <Grid container justify="flex-start" alignItems="flex-start">
-                <Grid item xs={6}>
-                  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg/220px-Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg" alt="book img" />
-                </Grid>
-                <Grid item xs={6}>
-                  <h2>Harry</h2>
-                  <h3>jk</h3>
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium delectus maiores quaerat impedit quod amet, voluptas eligendi quisquam, voluptatibus ab accusantium alias quasi quae dolorem aspernatur magni et dicta officia!</p>
-                  <CardActions>
-                    <Button variant="contained" size="small" color="primary">
-                      view
-                  </Button>
-                    <Button variant="contained" size="small" color="secondary">
-                      edit{" "}
-                    </Button>
-                    <Button variant="contained" size="small" className={classes.warning}>
-                      delete
-                  </Button>
-                  </CardActions>
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={6}>
-          <Card className={classes.root}>
-            <CardContent>
-              <Grid container justify="flex-start" alignItems="flex-start">
-                <Grid item xs={6}>
-                  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg/220px-Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg" alt="book img" />
-                </Grid>
-                <Grid item xs={6}>
-                  <h2>Harry</h2>
-                  <h3>jk</h3>
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium delectus maiores quaerat impedit quod amet, voluptas eligendi quisquam, voluptatibus ab accusantium alias quasi quae dolorem aspernatur magni et dicta officia!</p>
-                  <CardActions>
-                    <Button variant="contained" size="small" color="primary">
-                      view
-                  </Button>
-                    <Button variant="contained" size="small" color="secondary">
-                      edit{" "}
-                    </Button>
-                    <Button variant="contained" size="small" className={classes.warning}>
-                      delete
-                  </Button>
-                  </CardActions>
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={6}>
-          <Card className={classes.root}>
-            <CardContent>
-              <Grid container justify="flex-start" alignItems="flex-start">
-                <Grid item xs={6}>
-                  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg/220px-Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg" alt="book img" />
-                </Grid>
-                <Grid item xs={6}>
-                  <h2>Harry</h2>
-                  <h3>jk</h3>
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium delectus maiores quaerat impedit quod amet, voluptas eligendi quisquam, voluptatibus ab accusantium alias quasi quae dolorem aspernatur magni et dicta officia!</p>
-                  <CardActions>
-                    <Button variant="contained" size="small" color="primary">
-                      view
-                  </Button>
-                    <Button variant="contained" size="small" color="secondary">
-                      edit{" "}
-                    </Button>
-                    <Button variant="contained" size="small" className={classes.warning}>
-                      delete
-                  </Button>
-                  </CardActions>
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={6}>
-          <Card className={classes.root}>
-            <CardContent>
-              <Grid container justify="flex-start" alignItems="flex-start">
-                <Grid item xs={6}>
-                  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg/220px-Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg" alt="book img" />
-                </Grid>
-                <Grid item xs={6}>
-                  <h2>Harry</h2>
-                  <h3>jk</h3>
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium delectus maiores quaerat impedit quod amet, voluptas eligendi quisquam, voluptatibus ab accusantium alias quasi quae dolorem aspernatur magni et dicta officia!</p>
-                  <CardActions>
-                    <Button variant="contained" size="small" color="primary">
-                      view
-                  </Button>
-                    <Button variant="contained" size="small" color="secondary">
-                      edit{" "}
-                    </Button>
-                    <Button variant="contained" size="small" className={classes.warning}>
-                      delete
-                  </Button>
-                  </CardActions>
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
-        </Grid>
+        {books?.map((book, index) => (
+          <Grid item xs={6} key={index}>
+            <Book book={book} handleClick={ handleClick } />
+          </Grid>
+        ))}
       </Grid>
     </React.Fragment>
-
-    
   );
 };
 

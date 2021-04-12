@@ -1,119 +1,78 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Card from "@material-ui/core/Card";
-
-
+import {Card ,TextField, Grid , Button} from "@material-ui/core";
 
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
+      flexGrow: 1,
+      width: "80%",
+      textAlign: "center",
+      margin: "auto"
     },
-      heading: {
-        width: "50%",
-        background: "#081C8D",
-        textAlign: "center",
-        color: "#FFFFFF",
+    heading: {
+      width: "50%",
+      background: "#081C8D",
+      textAlign: "center",
+      color: "#FFFFFF",
+      margin: "auto",
+      marginBottom: "50px",
+      "& h1": {
         margin: "auto",
-        marginBottom: "20px",
-        "& h1": {
-          margin: "auto",
-        },
-      }
-  }),
+      },
+      
+    },
+
+    input: {
+      width: "100%"
+    },
+    button: {
+      width: "100%",
+      fontWeight: 700
+    }
+  })
 );
 
 const AddBook = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState('Controlled');
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
 
-  return (<form className={classes.root} noValidate autoComplete="off">
-    <div>
-      <Card className={classes.heading}> <h1>Add Books</h1></Card>
-      <TextField
-        id="standard-multiline-flexible"
-        label="Multiline"
-        multiline
-        rowsMax={4}
-        value={value}
-        onChange={handleChange}
-      />
-      <TextField
-        id="standard-textarea"
-        label="Multiline Placeholder"
-        placeholder="Placeholder"
-        multiline
-      />
-      <TextField
-        id="standard-multiline-static"
-        label="Multiline"
-        multiline
-        rows={4}
-        defaultValue="Default Value"
-      />
-    </div>
-    <div>
-      <TextField
-        id="filled-multiline-flexible"
-        label="Multiline"
-        multiline
-        rowsMax={4}
-        value={value}
-        onChange={handleChange}
-        variant="filled"
-      />
-      <TextField
-        id="filled-textarea"
-        label="Multiline Placeholder"
-        placeholder="Placeholder"
-        multiline
-        variant="filled"
-      />
-      <TextField
-        id="filled-multiline-static"
-        label="Multiline"
-        multiline
-        rows={4}
-        defaultValue="Default Value"
-        variant="filled"
-      />
-    </div>
-    <div>
-      <TextField
-        id="outlined-multiline-flexible"
-        label="Multiline"
-        multiline
-        rowsMax={4}
-        value={value}
-        onChange={handleChange}
-        variant="outlined"
-      />
-      <TextField
-        id="outlined-textarea"
-        label="Multiline Placeholder"
-        placeholder="Placeholder"
-        multiline
-        variant="outlined"
-      />
-      <TextField
-        id="outlined-multiline-static"
-        label="Multiline"
-        multiline
-        rows={4}
-        defaultValue="Default Value"
-        variant="outlined"
-      />
-    </div>
-  </form>);
+  return (
+      <div>
+        <Card className={classes.heading}>
+          <h1>Add A Book</h1>
+        </Card>
+        <form action="" className={classes.root}>
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <TextField className={classes.input} required id="outlined-required" label="Book Title" placeholder="enter the book's title " variant="outlined" />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField className={classes.input} label="Author" placeholder="enter the book's author " variant="outlined" />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField className={classes.input} required id="outlined-required" label="UUID" placeholder="enter the book's UUID " variant="outlined" />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField className={classes.input} label="Date" placeholder="enter the book title " variant="outlined" />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField className={classes.input} label="Cover image url" placeholder="enter the book title " variant="outlined" />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField className={classes.input} multiline id="outlined-textarea" label="Summary" placeholder="enter the book's summary " variant="outlined" />
+            </Grid>
+            <Grid item xs={12}>
+              <Button className={classes.button}  variant="contained" color="primary" type="submit">
+                Submit
+              </Button>
+            </Grid>
+          </Grid>
+      </form>
+      </div>
+  
+  );
 }
 
 export default AddBook

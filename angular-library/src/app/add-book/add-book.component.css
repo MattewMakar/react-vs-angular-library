@@ -1,16 +1,35 @@
-.example-form {
-  min-width: 100%;
-  max-width: 100%;
-  width: 50%;
-}
 .card-container{
-  margin: auto;
   width: 50%;
-}
-.example-full-width {
-  width: 100%;
+  text-align: center;
+  margin: auto;
 }
 
-td {
-  padding-right: 8px;
+.grid{
+  width: 100%;
+}
+.half-width{
+  width: 40%;
+  display: inline-block;
+  margin-right: 5%;
+    border: 1px solid #88888858;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 1%;
+
+}
+.half-width > *{
+  width: 100%;
+}
+.full-width{
+    width: 98%;
+    padding: 1%;
+    border: 1px solid #88888858;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+.full-width > *{
+    width: 100%;
+}
+.button{
+  border:unset;
 }

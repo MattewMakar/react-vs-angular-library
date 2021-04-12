@@ -1,6 +1,6 @@
 import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import Search from './Search';
+import Search from "./Search";
 import Card from "@material-ui/core/Card";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,17 +24,17 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-const DeleteBook = () => {
+const EditBooks = () => {
   const classes = useStyles();
 
   return (
     <div>
       <Card className={classes.heading}>
-        <h1>Delete A Book</h1>
+        <h1>Edit A Book</h1>
       </Card>
-      <Search/>
+      <Search />
     </div>
   );
 };
 
-export default DeleteBook;
+export default EditBooks;

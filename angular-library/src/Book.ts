@@ -1,4 +1,4 @@
-export interface Book{
+export interface Book {
   title: string;
   author?: string;
   UUID: string;
