@@ -1,5 +1,37 @@
 [
   {
+    "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+    "author": "Robert Martin",
+    "UUID": "9780132350884",
+    "date": "2008-08-30T04:00:00.000Z",
+    "cover": "https://images-na.ssl-images-amazon.com/images/I/41yafGMO+rL._SX376_BO1,204,203,200_.jpg",
+    "summary": "Even bad code can function. But if code isn’t clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn’t have to be that way."
+  },
+    {
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "UUID": "9780262033848",
+    "date": "2009-11-02T04:00:00.000Z",
+    "cover": "https://images-na.ssl-images-amazon.com/images/I/41T0iBxY8FL._SX440_BO1,204,203,200_.jpg",
+    "summary": "The first edition became a widely used text in universities worldwide as well as the standard reference for professionals. The second edition featured new chapters on the role of algorithms, probabilistic analysis and randomized algorithms, and linear programming. The third edition has been revised and updated throughout. It includes two completely new chapters, on van Emde Boas trees and multithreaded algorithms, substantial additions to the chapter on recurrence (now called 'Divide-and-Conquer'), and an appendix on matrices. It features improved treatment of dynamic programming and greedy algorithms and a new notion of edge-based flow in the material on flow networks. Many new exercises and problems have been added for this edition. As of the third edition, this textbook is published exclusively by the MIT Press."
+  },
+      {
+    "title": "Algorithms Unlocked (The MIT Press)",
+    "author": "Thomas H. Cormen",
+    "UUID": "978-0262518802",
+    "date": "2013-01-01T04:00:00.000Z",
+    "cover": "https://images-na.ssl-images-amazon.com/images/I/41BBzkgR1gL._SX330_BO1,204,203,200_.jpg",
+    "summary": "Thomas Cormen helps readers to achieve a broad understanding of the key algorithms underlying much of computer science. For computer science students and practitioners, it is a great review of key algorithms that every computer scientist must understand. For non-practitioners, it truly unlocks the world of algorithms at the heart of the tools we use every day."
+  },
+        {
+    "title": "C++ Primer (5th Edition)",
+    "author": " Stanley B. Lippman ",
+    "UUID": "978-0321714114",
+    "date": "2012-08-06T04:00:00.000Z",
+    "cover": "https://images-na.ssl-images-amazon.com/images/I/41Gd9xIXrUL._SX381_BO1,204,203,200_.jpg",
+    "summary": "Fully updated and recast for the newly released C++11 standard, this authoritative and comprehensive introduction to C++ will help you to learn the language fast, and to use it in modern, highly effective ways. Highlighting today’s best practices, the authors show how to use both the core language and its standard library to write efficient, readable, and powerful code."
+  },
+  {
     "title": "Harry Potter and the Sorcerer's Stone",
     "author": "J.K. Rowling",
     "UUID": "978-0439708180",

@@ -10,15 +10,12 @@ export class BookComponent implements OnInit {
   @Input() book: Book;
   @Output() deleteClicked = new EventEmitter();
   constructor() {
+  
   }
 
   ngOnInit(): void {
-          // this.book.date = this.book.date
-          //   .toDateString()
-          //   .split(' ')
-          //   .slice(1)
-          //   .join(' ');
-
+  if (!this.book?.cover)
+    this.book.cover = '../../assets/No_Image_Available.jpg'; 
   }
   onDelete(value: string) {
     

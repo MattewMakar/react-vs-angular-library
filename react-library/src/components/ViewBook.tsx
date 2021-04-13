@@ -12,7 +12,8 @@ const useStyles = makeStyles({
     maxWidth: "100%",
   },
   image: {
-    height: "100%"
+    height: "100%",
+    width:"100%"
   }
   
 });
@@ -29,14 +30,15 @@ const ViewBook = () => {
   return (
  <Card className={classes.root}>
       {book && <CardContent>
-        <Grid container justify="flex-start" alignItems="flex-start">
+        <Grid container justify="flex-start" alignItems="flex-start" spacing={ 3}>
           <Grid item xs={2}>
             <img className={classes.image} src={book.cover} alt={book.title} />
           </Grid>
           <Grid item xs={10}>
             <h2>{book.title}</h2>
             <h3>{book.author}</h3>
-            <h5>{book.date}</h5>
+            <h5>{book.date?.toString().substr(0, 10)}</h5>
+            <h5>{book.UUID}</h5>
             <p >{book.summary}</p>
           </Grid>
         </Grid>

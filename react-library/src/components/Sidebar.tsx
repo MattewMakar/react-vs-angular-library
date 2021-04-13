@@ -10,17 +10,17 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
     },
     appBar: {
-      width: `calc(100% - ${240}px)`,
+      width: `calc(100% - ${200}px)`,
       marginLeft: 240,
       background: "#000000",
       "& *": { textAlign: "center" },
     },
     drawer: {
-      width: 240,
+      width: 200,
       flexShrink: 0,
     },
     drawerPaper: {
-      width: 240,
+      width: 200,
       background: "#3b6076",
       color: "#F0F0F0",
       "& *": {

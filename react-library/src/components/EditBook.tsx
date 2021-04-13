@@ -124,7 +124,6 @@ const EditBook = () => {
                     variant="outlined"
                     onChange={(e) => handleChange("author", e.target.value)}
                     name="author"
-                    required
                   />
                 </Grid>
                 <Grid item xs={6}>

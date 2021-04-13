@@ -53,7 +53,7 @@ const BookList = () => {
       </Card>
       <Grid container justify="flex-start" spacing={3}>
         {books?.map((book, index) => (
-          <Grid item xs={6} key={index}>
+          <Grid item  sm={12} md={12} lg={6} key={index}>
             <Book book={book} handleClick={ handleClick } />
           </Grid>
         ))}

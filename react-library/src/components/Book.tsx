@@ -14,18 +14,29 @@ const useStyles = makeStyles({
   },
   warning: {
     background: "#E80B0B",
+    "& span": {
+      color: "#F0F0F0"
+    }
+   
   },
   summary: {
     height: 100,
     textOverflow: "ellipsis",
+    whiteSpace: "normal",
+
     overflow: "hidden"
   },
   image: {
-    height: 400,
-    width: 260,
+    height: 300,
+    width: 200,
     borderRadius: 5,
     boxShadow:"5px 5px 5px #888888"
-  } 
+  },
+  heading: {
+    textOverflow: "ellipsis",
+    whiteSpace:"nowrap"
+   
+  }
 });
 
 
@@ -37,14 +48,15 @@ const Book = ({ book , handleClick}: { book: BookType , handleClick:(e : React.M
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Grid container justify="flex-start" alignItems="flex-start">
-          <Grid item xs={6}>
+        <Grid container justify="flex-start" alignItems="flex-start" spacing={ 1}> 
+          <Grid item xs={4}>
             <img className={classes.image} src={book.cover ? book.cover : noImage} alt={book.title} />
           </Grid>
-          <Grid item xs={6}>
-            <h2>{book.title}</h2>
+          <Grid item xs={8}>
+            <h3 className={ classes.heading}>{book.title}</h3>
             <h3>{book.author}</h3>
-            <h5>{book.date?.toString().substr(0,10)}</h5> 
+            <h5>{book.date?.toString().substr(0, 10)}</h5>
+            <h5>{book.UUID}</h5>
             <p className={classes.summary}>{book.summary}</p>
             <CardActions>
               <Button variant="contained" onClick={()=> history.push(encodeURI(`/view/${book.title}`))} size="small" color="primary">

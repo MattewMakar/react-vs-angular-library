@@ -1,25 +1,36 @@
-.book-card{
+.book-card {
   margin-bottom: 20px;
 }
-.book-img{
+.book-img {
   border-radius: 5px;
   box-shadow: 3px 3px 5px #888888;
-  height: 400px;
-  width: 260px;
+  height: 300px;
+  width: 200px;
   margin-right: 10px;
 }
 
-.content{
+.content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: .5fr 1fr;
   gap: 10px;
   justify-content: space-between;
   align-items: start;
 }
-.summary{
+
+.summary {
   overflow: hidden;
   height: 100px;
 }
-.button-link{
+.button-link {
   margin-left: 5px;
+}
+h2 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 1500px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
 }
