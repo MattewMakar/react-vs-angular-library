@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/books", (req, res) => {
   const data = fs.readFileSync("./books.json", "utf-8");  
-  res.send(JSON.parse(data)).status(200);
+  res.status(200).send(JSON.parse(data));
 });
 
 router.get("/books/:id", (req, res) => {
@@ -16,7 +16,7 @@ router.get("/books/:id", (req, res) => {
     return obj.title.toUpperCase().includes(req.params.id.toUpperCase());
   });
   
-  res.send(book).status(200);
+  res.status(200).send(book);
 });
 router.post("/books", (req, res) => {
   const stringData = fs.readFileSync("./books.json", "utf-8");
@@ -28,9 +28,10 @@ router.post("/books", (req, res) => {
     fs.writeFileSync("./books.json", JSON.stringify(data));
     res.sendStatus(201);
   } else {
-    res.send({
-      message: "UUID number already exist"
-    }).status(422)
+    
+    res.status(422).send({
+      message: "UUID number already exist",
+    });
   }
    
 });
@@ -43,12 +44,13 @@ router.delete("/books/:id", (req, res) => {
   fs.writeFileSync("./books.json", JSON.stringify(data));
   res.sendStatus(200);
 });
-router.put("/books/:id", (req, res) => {
+router.put("/books/:id", (req, res) => {  
   const stringData = fs.readFileSync("./books.json", "utf-8");
   let data = JSON.parse(stringData);
-  data = data.filter((obj: Book) => obj.title !== req.body);
-  data.push(req.body);
-  fs.writeFileSync("./books.json", data);
+
+  const dataIndex = data.findIndex((obj: Book) => obj.UUID === req.body.UUID);
+  data[dataIndex]= req.body;
+  fs.writeFileSync("./books.json", JSON.stringify(data));
   res.sendStatus(201);
 });
 

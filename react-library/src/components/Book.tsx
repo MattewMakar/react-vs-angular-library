@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import noImage from "../assets/No_Image_Available.jpg"
 import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
@@ -30,7 +31,8 @@ const useStyles = makeStyles({
 
 
 const Book = ({ book , handleClick}: { book: BookType , handleClick:(e : React.MouseEvent<HTMLButtonElement>, id:string) =>void}) => {
-    const classes = useStyles();
+  const classes = useStyles();
+  let history = useHistory();
 
   return (
     <Card className={classes.root}>
@@ -42,13 +44,13 @@ const Book = ({ book , handleClick}: { book: BookType , handleClick:(e : React.M
           <Grid item xs={6}>
             <h2>{book.title}</h2>
             <h3>{book.author}</h3>
-            <h5>{book.date}</h5>
+            <h5>{book.date?.toString().substr(0,10)}</h5> 
             <p className={classes.summary}>{book.summary}</p>
             <CardActions>
-              <Button variant="contained" href={encodeURI(`/view/${book.title}`)} size="small" color="primary">
+              <Button variant="contained" onClick={()=> history.push(encodeURI(`/view/${book.title}`))} size="small" color="primary">
                 view more
               </Button>
-              <Button variant="contained" href={encodeURI(`/edit/${book.title}`)} size="small" color="secondary">
+              <Button variant="contained" onClick={()=> history.push(encodeURI(`/edit/${book.title}`))} size="small" color="secondary">
                 edit
               </Button>
               <Button variant="contained" size="small" className={classes.warning} onClick={(e) => handleClick(e, book.title)}>

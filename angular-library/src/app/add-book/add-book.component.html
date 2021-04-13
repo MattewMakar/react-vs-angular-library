@@ -7,6 +7,8 @@
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>title</mat-label>
       <input matInput placeholder="ex. Harry Potter" formControlName="title" />
+      <mat-error *ngIf="bookForm.controls.title.invalid">Invalid title</mat-error>
+
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="half-width">
@@ -17,6 +19,8 @@
     <mat-form-field class="half-width" appearance="outline">
       <mat-label>UUID</mat-label>
       <input matInput formControlName="UUID" />
+          <mat-error *ngIf="bookForm.controls.UUID.invalid">Invalid UUID</mat-error>
+
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="half-width">
@@ -36,7 +40,7 @@
 
             </textarea>
     </mat-form-field>
-
+    <mat-error *ngIf="error">The UUID you entered already exist </mat-error>
 
     <div class="full-width button">
       <button mat-raised-button color="primary">add</button>

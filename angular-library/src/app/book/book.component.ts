@@ -9,9 +9,17 @@ import { Book } from 'src/Book';
 export class BookComponent implements OnInit {
   @Input() book: Book;
   @Output() deleteClicked = new EventEmitter();
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+          // this.book.date = this.book.date
+          //   .toDateString()
+          //   .split(' ')
+          //   .slice(1)
+          //   .join(' ');
+
+  }
   onDelete(value: string) {
     
     this.deleteClicked.emit(value)

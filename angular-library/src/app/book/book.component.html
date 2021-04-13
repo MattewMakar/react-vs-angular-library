@@ -4,7 +4,7 @@
     <div>
       <h2>{{book.title}}</h2>
       <h4>{{book.author}}</h4>
-      <h5>{{book.date}}</h5>
+      <h5 >{{book.date | date: 'dd/MM/yyyy'}}</h5>
       <p class="summary">{{book.summary}}</p>
       <mat-card-actions>
         <a [routerLink]="['/view/', book.title]" class="button-link">

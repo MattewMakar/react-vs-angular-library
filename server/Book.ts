@@ -1,8 +1,8 @@
-export interface Book{
+export interface Book {
   title: string;
   author?: string;
   UUID: string;
-  date?: string;
+  date?: Date ;
   cover?: string;
   summary?: string;
 }

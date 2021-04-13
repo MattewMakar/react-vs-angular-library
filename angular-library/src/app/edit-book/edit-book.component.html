@@ -1,52 +1,58 @@
-<div *ngIf="!loading ; then loading else form "  ></div>
-<ng-template #loading><mat-spinner ></mat-spinner>
+<div *ngIf="!book; then loading; else form"></div>
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
 </ng-template>
 <ng-template #form>
-<mat-card class="component-heading">
-  <h2>Edit A Book</h2>
-</mat-card>
+  <mat-card class="component-heading">
+    <h2>Edit A Book</h2>
+  </mat-card>
 
-<mat-card class="card-container">
-  <form [formGroup]="bookForm" class="grid" (ngSubmit)="onSubmit()">
-    <mat-form-field class="full-width" appearance="outline">
-      <mat-label>title</mat-label>
-      <input matInput placeholder="ex. Harry Potter" formControlName="title" />
-    </mat-form-field>
+  <mat-card class="card-container">
+    <form [formGroup]="bookForm" class="grid" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>title</mat-label>
+        <input
+          matInput
+          placeholder="ex. Harry Potter"
+          formControlName="title"
+        />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="half-width">
-      <mat-label>Author</mat-label>
-      <input matInput formControlName="author" />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Author</mat-label>
+        <input matInput formControlName="author" />
+      </mat-form-field>
 
-    <mat-form-field class="half-width" appearance="outline">
-      <mat-label>UUID</mat-label>
-      <input matInput formControlName="UUID" />
-    </mat-form-field>
+      <mat-form-field class="half-width" appearance="outline">
+        <mat-label>UUID</mat-label>
+        <input matInput formControlName="UUID" />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="half-width">
-      <mat-label>Date</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="half-width">
-      <mat-label>Cover Image Url</mat-label>
-      <input matInput placeholder="Ex. California" formControlName="cover" />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Summary</mat-label>
-      <textarea matInput class="summary" formControlName="summary" placeholder="Ex. 100 Main St">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Cover Image Url</mat-label>
+        <input matInput placeholder="Ex. California" formControlName="cover" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Summary</mat-label>
+        <textarea
+          matInput
+          class="summary"
+          formControlName="summary"
+          placeholder="Ex. 100 Main St"
+        >
+        </textarea>
+      </mat-form-field>
 
-            </textarea>
-    </mat-form-field>
-
-
-    <div class="full-width button">
-      <button mat-raised-button color="primary">add</button>
-    </div>
-
-
-  </form>
-</mat-card>
+      <div class="full-width button">
+        <button mat-raised-button color="primary">Edit</button>
+      </div>
+    </form>
+  </mat-card>
 </ng-template>

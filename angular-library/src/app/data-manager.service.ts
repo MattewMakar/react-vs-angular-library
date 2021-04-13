@@ -20,7 +20,14 @@ export class DataManagerService {
       responseType: 'text',
     });
   }
-  addBook(book: Book):Observable<Book>{
-    return this.http.post<Book>('http://localhost:8000/books', book);
+  addBook(book: Book): Observable<{}> {
+    return this.http.post('http://localhost:8000/books', book, {
+      responseType: 'text',
+    });
+  }
+  editBook(id: string, book: Book): Observable<{}> {
+    return this.http.put(`http://localhost:8000/books/${encodeURI(id)}`,book,{
+      responseType: 'text',
+    });
   }
 }

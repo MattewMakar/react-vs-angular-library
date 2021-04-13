@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/Book';
 import { DataManagerService } from '../data-manager.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -10,14 +10,22 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EditBookComponent implements OnInit {
   id: string;
-  bookForm: FormGroup;
-  loading: boolean = false;
   book: Book;
+  bookForm = new FormGroup({
+    title: new FormControl('', [Validators.required]),
+    author: new FormControl(''),
+    UUID: new FormControl('', [Validators.required]),
+    date: new FormControl(''),
+    cover: new FormControl(''),
+    summary: new FormControl(''),
+  });
+
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataManagerService
+    private dataService: DataManagerService,
+    private router :Router
   ) {
-    this.id = route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
   }
 
   ngOnInit(): void {
@@ -32,7 +40,18 @@ export class EditBookComponent implements OnInit {
         summary: new FormControl(this.book.summary),
       });
     });
-    this.loading = true;
   }
-  onSubmit() {}
+  onSubmit(): void {
+    console.log(this.bookForm.value);
+
+    if (this.bookForm.valid)
+    {
+      this.dataService.editBook(this.id, this.bookForm.value).subscribe(
+        () => {
+          this.router.navigate(['']);
+        }
+      );
+
+    }
+  }
 }
