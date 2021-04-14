@@ -1,6 +1,7 @@
 .card{
   text-align: center;
   margin: auto;
+  width: 80%;
   margin-top: 10%;
   background-image: linear-gradient(to top, rgba(0, 25, 50, 0.52), rgba(10, 0, 250,  0.13) ) ,url(../../assets/background.jpg);
   background-size: 100%;
@@ -8,6 +9,8 @@
   color: #05413b;
   box-shadow: 2px 5px 5px #888888;
 font-size: 1.2em;
+    border-radius: 10px;
+
 }
 .content{
   background: #e2e4e3;
