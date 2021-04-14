@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core";
 import { Switch, Route } from "react-router-dom";
 import { mainRoutes } from "./routes";
+import BookList from "./BookList";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,11 +21,14 @@ const Main = () => {
   return (
     <main className={classes.content}>
       <Switch>
-        {mainRoutes.map((route, index) => 
-          <Route  path={route.path} key={index} exact>
+        {mainRoutes.map((route, index) => (
+          <Route path={route.path} key={index} exact>
             {route.Component}
           </Route>
-        )}
+        ))}
+        <Route path="*" >
+          <BookList/>
+        </Route>
       </Switch>
     </main>
   );
