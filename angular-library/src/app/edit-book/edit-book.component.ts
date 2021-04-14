@@ -42,7 +42,6 @@ export class EditBookComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    console.log(this.bookForm.value);
 
     if (this.bookForm.valid)
     {

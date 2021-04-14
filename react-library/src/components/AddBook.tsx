@@ -14,8 +14,8 @@ const theme = createMuiTheme({
     MuiFormControl: {
       marginNormal: {
         marginBottom: 0,
-        marginTop: 0
-      }
+        marginTop: 0,
+      },
     },
   },
 });
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
     input: {
       width: "100%",
-      alignSelf: "center"
+      alignSelf: "center",
     },
     button: {
       width: "100%",
@@ -49,8 +49,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     error: {
       color: "#ff0000",
-      fontWeight: 700
-    }
+      fontWeight: 700,
+    },
   })
 );
 
@@ -69,21 +69,19 @@ const AddBook = () => {
   const [serverError, setServerError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (book.title && book.UUID) {
-      const response = await axios({ method: "post", url: "http://localhost:8000/books", data: book }).catch(err=> err);
-      console.log("response" , response); 
-      
-      if (!response) {
+    try {
+      e.preventDefault();
+      setServerError(false);
+
+      if (book.title && book.UUID) {
+        await axios({ method: "post", url: "http://localhost:8000/books", data: book });
         setSubmit(true);
         history.push("/");
       } else {
-        setServerError(true); 
+        setSubmit(false);
       }
-
-
-    } else {
-      setSubmit(false);
+    } catch (err) {
+      setServerError(true);
     }
   };
   const handleChange = (name: "title" | "author" | "UUID" | "date" | "cover" | "summary", value: any) => {
@@ -117,7 +115,7 @@ const AddBook = () => {
                   helperText={!submit && !book.UUID ? "title is required." : ""}
                 />
               </Grid>
-              <Grid item xs={6} >
+              <Grid item xs={6}>
                 <TextField
                   InputLabelProps={{
                     shrink: true,
@@ -131,7 +129,7 @@ const AddBook = () => {
                   name="author"
                 />
               </Grid>
-              <Grid item xs={6} >
+              <Grid item xs={6}>
                 <TextField
                   InputLabelProps={{
                     shrink: true,
@@ -149,7 +147,7 @@ const AddBook = () => {
                   helperText={!submit && !book.UUID ? "UUID is required." : ""}
                 />
               </Grid>
-              <Grid item xs={6} >
+              <Grid item xs={6}>
                 <KeyboardDatePicker
                   margin="normal"
                   id="date-picker-dialog"
@@ -165,7 +163,7 @@ const AddBook = () => {
                   name="date"
                 />
               </Grid>
-              <Grid item xs={6} >
+              <Grid item xs={6}>
                 <TextField
                   InputLabelProps={{
                     shrink: true,
@@ -195,21 +193,17 @@ const AddBook = () => {
                   name="summary"
                 />
               </Grid>
-              {serverError ?
+              {serverError ? (
                 <Grid item xs={12}>
-                  <p className={classes.error}>
-                    The UUID you entered is already exist
-                </p>
+                  <p className={classes.error}>The UUID you entered is already exist</p>
                 </Grid>
-                : null
-              }
+              ) : null}
 
               <Grid item xs={12}>
                 <Button className={classes.button} variant="contained" color="primary" type="submit">
                   Submit
                 </Button>
               </Grid>
-
             </Grid>
           </form>
         </div>

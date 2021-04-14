@@ -1,13 +1,30 @@
 <mat-sidenav-container class="sidenavContainer">
+
+
+
   <mat-sidenav class="sidenav" opened mode="side">
     <ul class="list">
       <li class="list-item" *ngFor="let route of routes">
-        <a class="list-link" [routerLink]="route.link">
+
+        <div *ngIf="route.name === 'Logout'; then logout else regular "></div>
+
+        <ng-template #logout>
+          <div class="list-link logout" (click)="doLogout()" >
           <mat-icon class="icon">{{route.icon}}</mat-icon><span class="link-text">{{route.name}}</span>
-        </a>
+          </div>
+        </ng-template>
+        <ng-template #regular>
+          <a class="list-link" [routerLink]="route.link">
+            <mat-icon class="icon">{{route.icon}}</mat-icon><span class="link-text">{{route.name}}</span>
+          </a>
+        </ng-template>
+
       </li>
     </ul>
   </mat-sidenav>
+
+
+
   <mat-sidenav-content>
 
     <mat-toolbar class="sidenavToolbar">

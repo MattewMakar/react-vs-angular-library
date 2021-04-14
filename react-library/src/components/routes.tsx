@@ -1,19 +1,23 @@
-import Home from './Home';
+import Home from "./Home";
 import HomeIcon from "@material-ui/icons/Home";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import BookList from './BookList';
-import AddBook from './AddBook';
-import EditBooks from './EditBooks';
-import DeleteBook from './DeleteBook';
+import BookList from "./BookList";
+import AddBook from "./AddBook";
+import EditBooks from "./EditBooks";
+import DeleteBook from "./DeleteBook";
 import EditBook from "./EditBook";
-import ViewBook from './ViewBook';
+import ViewBook from "./ViewBook";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
-export const routes = [{
-  path: "/",
-  Component:<Home/>,
-}];
+export const routes = [
+  {
+    path: "/",
+    Component: <Home />,
+  },
+  
+];
 
 export const mainRoutes = [
   {
@@ -38,8 +42,8 @@ export const mainRoutes = [
   },
   {
     path: "/view/:id",
-    Component: <ViewBook/>
-  }
+    Component: <ViewBook />,
+  },
 ];
 
 export const links = [
@@ -63,9 +67,11 @@ export const links = [
     icon: <EditIcon />,
     link: "/edit",
   },
-  
-  
-
+  {
+    name: "Logout",
+    icon: <ExitToAppIcon />,
+    link: "/",
+  },
 ];
 export const buttonLinks = [
   {
@@ -80,5 +86,4 @@ export const buttonLinks = [
     name: "Delete",
     link: "/delete",
   },
-
 ];

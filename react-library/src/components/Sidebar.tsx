@@ -3,6 +3,8 @@ import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import { Drawer, CssBaseline, AppBar, Toolbar, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { links } from "./routes";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,6 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 );
 const Sidebar = () => {
+  const { logout } = useAuth0()
   const classes = useStyles();
 
   return (
@@ -66,7 +69,7 @@ const Sidebar = () => {
       >
         <List>
           {links.map((list, index) => (
-            <Link to={list.link} className={classes.link} key={index}>
+            <Link to={list.link} className={classes.link} key={index} onClick={ list.name ==="Logout" ?()=> logout() : undefined  }>
               <ListItem button>
                 <ListItemIcon className={classes.icon}>{list.icon}</ListItemIcon>
                 <ListItemText primary={list.name} />

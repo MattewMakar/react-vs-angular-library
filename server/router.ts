@@ -40,7 +40,7 @@ router.delete("/books/:id", (req, res) => {
   const stringData = fs.readFileSync("./books.json", "utf-8");
   
   let data = JSON.parse(stringData);
-  data = data.filter((obj: Book) => obj.title !== req.params.id);
+  data = data.filter((obj: Book) => obj.UUID !== req.params.id);
   fs.writeFileSync("./books.json", JSON.stringify(data));
   res.sendStatus(200);
 });

@@ -27,8 +27,7 @@ const useStyles = makeStyles({
     overflow: "hidden"
   },
   image: {
-    height: 300,
-    width: 200,
+    width: "100%",
     borderRadius: 5,
     boxShadow:"5px 5px 5px #888888"
   },
@@ -48,7 +47,7 @@ const Book = ({ book , handleClick}: { book: BookType , handleClick:(e : React.M
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Grid container justify="flex-start" alignItems="flex-start" spacing={ 1}> 
+        <Grid container justify="flex-start" alignItems="flex-start" spacing={ 3}> 
           <Grid item xs={4}>
             <img className={classes.image} src={book.cover ? book.cover : noImage} alt={book.title} />
           </Grid>
@@ -65,7 +64,7 @@ const Book = ({ book , handleClick}: { book: BookType , handleClick:(e : React.M
               <Button variant="contained" onClick={()=> history.push(encodeURI(`/edit/${book.title}`))} size="small" color="secondary">
                 edit
               </Button>
-              <Button variant="contained" size="small" className={classes.warning} onClick={(e) => handleClick(e, book.title)}>
+              <Button variant="contained" size="small" className={classes.warning} onClick={(e) => handleClick(e, book.UUID)}> 
                 delete
               </Button>
             </CardActions>

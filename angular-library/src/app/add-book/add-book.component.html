@@ -5,9 +5,9 @@
 <mat-card class="card-container">
   <form [formGroup]="bookForm" class="grid" (ngSubmit)="onSubmit()">
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>title</mat-label>
-      <input matInput placeholder="ex. Harry Potter" formControlName="title" />
-      <mat-error *ngIf="bookForm.controls.title.invalid">Invalid title</mat-error>
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="ex. Harry Potter" required formControlName="title" />
+      <mat-error *ngIf="bookForm.controls.title.invalid">Invalid Title</mat-error>
 
     </mat-form-field>
 
@@ -18,7 +18,7 @@
 
     <mat-form-field class="half-width" appearance="outline">
       <mat-label>UUID</mat-label>
-      <input matInput formControlName="UUID" />
+      <input matInput formControlName="UUID" required/>
           <mat-error *ngIf="bookForm.controls.UUID.invalid">Invalid UUID</mat-error>
 
     </mat-form-field>
@@ -32,13 +32,11 @@
 
     <mat-form-field appearance="outline" class="half-width">
       <mat-label>Cover Image Url</mat-label>
-      <input matInput placeholder="Ex. California" formControlName="cover" />
+      <input matInput placeholder="https://images.com/image" formControlName="cover" />
     </mat-form-field>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Summary</mat-label>
-      <textarea matInput class="summary" placeholder="Ex. 100 Main St">
-
-            </textarea>
+      <textarea matInput class="summary" formControlName="summary"></textarea>
     </mat-form-field>
     <mat-error *ngIf="error">The UUID you entered already exist </mat-error>
 

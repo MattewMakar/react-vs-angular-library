@@ -11,9 +11,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
+import { LoginButtonComponent } from './login-button/login-button.component';
+import { MatCardModule } from '@angular/material/card'; 
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
-  declarations: [AppComponent, SidebarComponent, MainComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    SidebarComponent,
+    MainComponent,
+    HomeComponent,
+    LoginButtonComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +34,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     HomeModule,
     HttpClientModule,
+    AuthModule.forRoot({
+      ...env.auth,
+    }),
+    MatCardModule,
+    MatButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Inject, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -28,9 +29,22 @@ export class SidebarComponent implements OnInit {
       icon: 'edit',
       link: '/edit',
     },
-
+    {
+      name: 'Logout',
+      icon: 'exit_to_app',
+      link: '/login',
+    },
   ];
-  constructor() {}
+  constructor(
+    public auth: AuthService,
+    @Inject(DOCUMENT) private doc: Document
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+  
+  doLogout(): void {
+
+    this.auth.logout({ returnTo: this.doc.location.origin });
+    
+  }
 }
