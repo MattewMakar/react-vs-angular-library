@@ -7,19 +7,11 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private auth: AuthService
-    , private router: Router) {
-    
-    auth.isAuthenticated$.subscribe(
-      (value) => {
-        
-        if (!value) router.navigate(['/login']);
-        
-      }
-    )
-      
+  constructor(private auth: AuthService, private router: Router) {
+    auth.isAuthenticated$.subscribe((value) => {
+      if (!value) router.navigate(['/login']);
+    });
   }
-  
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }
