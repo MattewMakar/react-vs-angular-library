@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import Book from "./Book";
-import Card from "@material-ui/core/Card";
-import Grid from "@material-ui/core/Grid";
+import { Card, Grid} from "@material-ui/core";
 import { Book as BookType } from "../Book";
 
 const useStyles = makeStyles({
